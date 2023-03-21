@@ -10,7 +10,7 @@ const prisma = new PrismaClient()
 @Resolver(() => Post) 
 export class PostsResolver {
 
-    @Authorized("PRIVATE_POST")
+    @Authorized()
     @Query(() => [Post])
     async posts() {
         const posts = await prisma.post.findMany({
